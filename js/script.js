@@ -138,7 +138,7 @@ window.addEventListener('load', () => {
 window.addEventListener('scroll', animateSkillBars);
 
 // ===========================
-// Form Validation & Submission
+// Form Validation & Submission (FormSpree)
 // ===========================
 const contactForm = document.getElementById('contact-form');
 const formMessage = document.getElementById('form-message');
@@ -169,19 +169,25 @@ contactForm.addEventListener('submit', async (e) => {
     const formData = new FormData(contactForm);
     
     try {
-        // Send form data using fetch
-        const response = await fetch('contact.php', {
+        // Send form data to FormSpree
+        const response = await fetch(contactForm.action, {
             method: 'POST',
-            body: formData
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
         });
         
-        const result = await response.json();
-        
-        if (result.success) {
+        if (response.ok) {
             showMessage('Thank you! Your message has been sent successfully.', 'success');
             contactForm.reset();
         } else {
-            showMessage(result.message || 'Something went wrong. Please try again.', 'error');
+            const data = await response.json();
+            if (data.errors) {
+                showMessage(data.errors.map(error => error.message).join(', '), 'error');
+            } else {
+                showMessage('Something went wrong. Please try again.', 'error');
+            }
         }
     } catch (error) {
         showMessage('Error sending message. Please try again later.', 'error');
