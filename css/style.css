@@ -2,15 +2,18 @@
    Global Styles & Variables
    =========================== */
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --text-dark: #333333;
-    --text-light: #666666;
-    --bg-light: #f8f9fa;
+    --primary-color: #0f172a;        /* Slate 900 - Deep navy */
+    --secondary-color: #1e40af;      /* Blue 800 - Rich blue */
+    --accent-color: #3b82f6;         /* Blue 500 - Bright blue accent */
+    --accent-gold: #f59e0b;          /* Amber 500 - Gold accent */
+    --text-dark: #1e293b;            /* Slate 800 */
+    --text-light: #64748b;           /* Slate 500 */
+    --bg-light: #f1f5f9;             /* Slate 100 - Light blue-gray */
     --bg-white: #ffffff;
-    --border-color: #e0e0e0;
-    --shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    --bg-dark: #1e293b;              /* Dark blue background */
+    --border-color: #cbd5e1;         /* Slate 300 */
+    --shadow: 0 2px 15px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 10px 40px rgba(15, 23, 42, 0.12);
     --transition: all 0.3s ease;
 }
 
@@ -108,9 +111,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-    background: #2980b9;
+    background: #1e3a8a;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    box-shadow: 0 5px 15px rgba(30, 64, 175, 0.4);
 }
 
 .btn-secondary {
@@ -224,7 +227,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #1e40af 100%);
     color: white;
     text-align: center;
     position: relative;
